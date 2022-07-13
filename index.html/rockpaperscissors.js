@@ -1,8 +1,10 @@
-        function computerPlay (a,b,c) {
-            return a || b || c 
-        }
 
-        a === ("Rock")
-        b === ("Paper")
-        c === ("Scissors")
-console.log(computerPlay);
+
+        function computerPlay (a,b,c) {
+            let options = ("Rock", "Paper", "Scissors");
+            return options = [Math.floor(Math.random()*3)];
+
+            }
+            computerPlay('Rock','Paper','Scissors');
+
+            console.log(computerPlay("Rock","Paper","Scissors"));
