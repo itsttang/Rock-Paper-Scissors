@@ -1,9 +1,40 @@
+//choices for RPS
+
 const choices = ["rock", "paper", "scissors"];
+
+//calling the game function will initiate RPS
 
 function game() { 
     playRound();
+
+    for (let i = 0; i < 5; i++) {
+
+if (playerChoice === computerChoice) {
+    console.log("It's a tie!");
+} 
+if (playerChoice == "rock" && computerChoice == "scissors") { 
+    console.log("Player wins!");
+    } else {
+        console.log("Computer wins!");
+    }
+ 
+if (playerChoice == "paper" && computerChoice == "rock") {
+    console.log("Player wins!");
+    } else {
+    console.log("Computer wins!");
 }
-             
+if (playerChoice == "scissors" && computerChoice == "paper") {
+    console.log("Player wins!");
+    } else {
+    console.log("Computer wins!");
+}
+}
+
+
+
+    }
+
+
         // A round of rock, paper, scissors between the player and computer.
 
     function playRound() {
