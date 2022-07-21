@@ -1,71 +1,53 @@
-//choices for RPS
+//Choices for RPS
 
 const choices = ["rock", "paper", "scissors"];
 
-//calling the game function will initiate RPS
+//Random between rock, paper, or scissors
+function computerChoice() {
+    return choices[Math.floor(Math.random()*choices.length)];
+}
 
+function playerChoice() {
+    let input = prompt("Type Rock, Paper, or Scissors");
+    while (input == null) {
+        input = prompt("Type Rock, Paper, or Scissors");
+    }
+    
+    input = input.toLowerCase();
+        console.log(input);
+    
+    return input;
+}
 function game() { 
-    playRound();
-
     for (let i = 0; i < 5; i++) {
-
-if (playerChoice === computerChoice) {
-    console.log("It's a tie!");
-} 
-if (playerChoice == "rock" && computerChoice == "scissors") { 
-    console.log("Player wins!");
-    } else {
-        console.log("Computer wins!");
-    }
- 
-if (playerChoice == "paper" && computerChoice == "rock") {
-    console.log("Player wins!");
-    } else {
-    console.log("Computer wins!");
-}
-if (playerChoice == "scissors" && computerChoice == "paper") {
-    console.log("Player wins!");
-    } else {
-    console.log("Computer wins!");
+        playRound(playerChoice,computerChoice);
 }
 }
-
-
-
-    }
-
+    
+    let playerScore = parseInt(0);
+    let computerScore = parseInt(0);
 
         // A round of rock, paper, scissors between the player and computer.
 
     function playRound() {
         const playerSelection = playerChoice();
         const computerSelection = computerChoice();
+        const winner = checkWinner(playerSelection,computerSelection);
+        console.log(winner);
         }
         
-    function playerChoice() {
-        let input = prompt("Type Rock, Paper, or Scissors");
-        while (input == null) {
-            input = prompt("Type Rock, Paper, or Scissors");
-        }
-        
-        input = input.toLowerCase();
-        let check = validateInput(input)
-        if (check == true) {
-            console.log(input);
-        }
-        //console.log(input);
-    }
-        
-    function computerChoice() {
-        return choices[Math.floor(Math.random()*choices.length)];
-    }
 
-    function validateInput(choice) {
-        if (choices.includes(choice)) {
-            return true;
+    function checkWinner(playerChoice,computerChoice) {
+        if (playerChoice === computerChoice) {
+            return "Tie";
+        } else if (
+            playerChoice === "rock" && computerChoice === "scissors" || 
+            playerChoice === "paper" && computerChoice === "scissors" ||
+            playerChoice === "scissors" && computerChoice === "paper"
+        ) {
+            return "Player wins";
         } else {
-            return false;
-        }
-        }
-    
+            return "Computer wins";
+        }}
+        
 game();
