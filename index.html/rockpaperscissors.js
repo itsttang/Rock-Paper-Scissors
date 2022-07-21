@@ -7,6 +7,7 @@ function computerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
 }
 
+//User input
 function playerChoice() {
     let input = prompt("Type Rock, Paper, or Scissors");
     while (input == null) {
@@ -18,6 +19,7 @@ function playerChoice() {
     
     return input;
 }
+
 function game() { 
     for (let i = 0; i < 5; i++) {
         playRound(playerChoice,computerChoice);
@@ -35,18 +37,25 @@ function game() {
         const winner = checkWinner(playerSelection,computerSelection);
         console.log(winner);
         }
-        
 
     function checkWinner(playerChoice,computerChoice) {
         if (playerChoice === computerChoice) {
+            console.log("Player score: " + playerScore)
+            console.log("Computer score: " + computerScore)
             return "Tie";
         } else if (
             playerChoice === "rock" && computerChoice === "scissors" || 
             playerChoice === "paper" && computerChoice === "scissors" ||
             playerChoice === "scissors" && computerChoice === "paper"
         ) {
+            playerScore++;
+            console.log("Player score: " + playerScore)
+            console.log("Computer score: " + computerScore)
             return "Player wins";
         } else {
+            computerScore++;
+            console.log("Player score: " + playerScore)
+            console.log("Computer score: " + computerScore)
             return "Computer wins";
         }}
         
